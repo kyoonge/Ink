@@ -346,10 +346,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681585521309739}
   - component: {fileID: 5931681585521309738}
+  - component: {fileID: 4265415935008811216}
   - component: {fileID: 5931681585521309737}
   - component: {fileID: 5931681585521309732}
   - component: {fileID: 5931681585521309733}
   - component: {fileID: 5931681585521309734}
+  - component: {fileID: 521767193786248666}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -399,6 +401,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!60 &4265415935008811216
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5931681585521309736}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.6956661, y: 0.13868368}
+      - {x: -0.70362204, y: 0.14560163}
+      - {x: -0.7036808, y: -1.1292148}
+      - {x: -0.08152765, y: -1.8272852}
+      - {x: 0.058516204, y: -1.827285}
+      - {x: 0.69807637, y: -1.1273961}
 --- !u!61 &5931681585521309737
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -406,7 +439,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5931681585521309736}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -447,7 +480,6 @@ MonoBehaviour:
   jumpHeight: 3
   maxJump: 1
   jumpCount: 0
-  gameOverObj: {fileID: 0}
 --- !u!114 &5931681585521309733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,6 +516,27 @@ MonoBehaviour:
   jellyEffectFront: {fileID: 0}
   jellyEffectBack: {fileID: 0}
   jellyEyeBlinkObject: {fileID: 1781807261254364503}
+--- !u!95 &521767193786248666
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5931681585521309736}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b37177d4d7e26574d91f7c5a3e27a082, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5931681585812718472
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerScale;
     [SerializeField] private float playerSpeed;
     private float playerXScale;
+    private Animator animator;
     #endregion
 
     #region PlayerJumpVariable
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
         jumpCount = 0;
         rigid = GetComponent<Rigidbody2D>();
         playerXScale = transform.localScale.x;
+        animator = GetComponent<Animator>();
         isDead = false;
     }
 
@@ -83,6 +85,7 @@ public class PlayerController : MonoBehaviour
             jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rigid.gravityScale));
             rigid.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             isJump = true;
+            animator.Play("Boing");
         }
     }
 
@@ -101,6 +104,15 @@ public class PlayerController : MonoBehaviour
         }
         transform.localScale = playerScale;
         transform.Translate(Vector2.right * Time.deltaTime * playerSpeed * horInput);
+
+        if(horInput == 0)
+        {
+            animator.Play("Idle");
+        }
+        else
+        {
+            animator.Play("Boing");
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision)

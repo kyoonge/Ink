@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class ColoredObject : MonoBehaviour, ISerializationCallbackReceiver
@@ -45,24 +46,32 @@ public class ColoredObject : MonoBehaviour, ISerializationCallbackReceiver
 
     public void OnBeforeSerialize()
     {
-        if (TryGetComponent<SpriteRenderer>(out var _sr))
+#if UNITY_EDITOR
+        if (PrefabUtility.GetPrefabInstanceStatus(this) == PrefabInstanceStatus.Connected)
         {
-            _sr.color = FindObjectOfType<ColorManager>().GetColorByColoring(objectColoring);
-        }
-        eyeballObject.SetActive(true);
-        _eyeballRenderers.Clear();
-        _eyeballRenderers.AddRange(eyeballObject.GetComponentsInChildren<SpriteRenderer>());
-
-        if (startAsEyeball)
-        {
+            if (TryGetComponent<SpriteRenderer>(out var _sr))
+            {
+                if (FindObjectOfType<ColorManager>() != null)
+                {
+                    _sr.color = FindObjectOfType<ColorManager>().GetColorByColoring(objectColoring);
+                }
+            }
             eyeballObject.SetActive(true);
-            isEyeball = true;
+            _eyeballRenderers.Clear();
+            _eyeballRenderers.AddRange(eyeballObject.GetComponentsInChildren<SpriteRenderer>());
+
+            if (startAsEyeball)
+            {
+                eyeballObject.SetActive(true);
+                isEyeball = true;
+            }
+            else
+            {
+                eyeballObject.SetActive(false);
+                isEyeball = false;
+            }
         }
-        else
-        {
-            eyeballObject.SetActive(false);
-            isEyeball = false;
-        }
+#endif
     }
 
     public void OnAfterDeserialize()
