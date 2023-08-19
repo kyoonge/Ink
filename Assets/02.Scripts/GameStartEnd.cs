@@ -19,10 +19,13 @@ public class GameStartEnd : MonoBehaviour
 
     public void loadNextScene()
     {
-        //SceneManager.LoadScene("Stage1");
-        DataManager.instance.ResetJson();
         SceneManager.LoadScene("Stage"+DataManager.instance.gameData.sceneIndex);
+    }
 
+    public void loadNewScene()
+    {
+        DataManager.instance.ResetJson();
+        SceneManager.LoadScene("Stage" + DataManager.instance.gameData.sceneIndex);
     }
 
     // Update is called once per frame

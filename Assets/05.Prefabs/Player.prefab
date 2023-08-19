@@ -369,7 +369,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.9, y: -0.61, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5931681587374403345}
   - {fileID: 5931681586675154327}
@@ -426,8 +426,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.6956661, y: 0.13868368}
-      - {x: -0.70362204, y: 0.14560163}
+    - - {x: 0.7028928, y: 0.42774293}
+      - {x: -0.6891691, y: 0.42020792}
       - {x: -0.7036808, y: -1.1292148}
       - {x: -0.08152765, y: -1.8272852}
       - {x: 0.058516204, y: -1.827285}
@@ -445,7 +445,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00064122677, y: -0.85}
+  m_Offset: {x: -0.00064122677, y: -0.65}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -456,7 +456,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3993194, y: 2}
+  m_Size: {x: 1.3993194, y: 2.38}
   m_EdgeRadius: 0
 --- !u!114 &5931681585521309732
 MonoBehaviour:
@@ -475,9 +475,13 @@ MonoBehaviour:
     m_Bits: 8
   groundChecker: {fileID: 5931681587374403346}
   fdt: 0
+  isReflection: 0
+  groundCheckDirection: {x: 0, y: 0}
+  playerClone: {fileID: 0}
+  cameraController: {fileID: 0}
   playerSpeed: 6
   isJump: 0
-  jumpHeight: 3
+  jumpHeight: 2.8
   maxJump: 1
   jumpCount: 0
 --- !u!114 &5931681585521309733
@@ -1416,7 +1420,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5931681586675154326}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.010000229, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0.000000026077032, y: 0.1, z: 0}
   m_LocalScale: {x: 1.2720512, y: 0.86395043, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
