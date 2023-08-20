@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -252,14 +252,15 @@ public class PlayerController : MonoBehaviour
     {
         isReflection = true;
         cameraController.isReflection = true;
+        //cameraController.GetComponent<Camera>().DOOrthoSize(10f, 0.5f);
 
         GetComponent<JellyShooter>().UpdateHeadColor();
 
-        //Å¬·Ğ »ı¼º
+        //í´ë¡  ìƒì„±
         playerClone.transform.position = this.transform.position + new Vector3(0,0.4f,0);
         playerClone.transform.localScale = Vector3.zero; 
         playerClone.SetActive(true);
-        //x,y ½ºÄÉÀÏ -1 °öÇÏ±â
+        //x,y ìŠ¤ì¼€ì¼ -1 ê³±í•˜ê¸°
         Vector3 reflectScale = new Vector3(transform.localScale.x*1, transform.localScale.y * -1, transform.localScale.z);
         playerClone.transform.DOScale(reflectScale, 0.5f).SetEase(Ease.OutSine);
 
@@ -268,11 +269,11 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator ReflectionOff()
     {
-        // playerCloneÀÇ Å©±â¸¦ 0À¸·Î ÁÙÀÌ´Â Æ®À© ¾Ö´Ï¸ŞÀÌ¼Ç
+        // playerCloneì˜ í¬ê¸°ë¥¼ 0ìœ¼ë¡œ ì¤„ì´ëŠ” íŠ¸ìœˆ ì• ë‹ˆë©”ì´ì…˜
         playerClone.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.OutSine);
-        // playerCloneÀÇ À§Ä¡¸¦ ¿ø·¡ ¿ÀºêÁ§Æ®ÀÇ À§Ä¡·Î ÀÌµ¿ÇÏ´Â Æ®À© ¾Ö´Ï¸ŞÀÌ¼Ç
+        // playerCloneì˜ ìœ„ì¹˜ë¥¼ ì›ë˜ ì˜¤ë¸Œì íŠ¸ì˜ ìœ„ì¹˜ë¡œ ì´ë™í•˜ëŠ” íŠ¸ìœˆ ì• ë‹ˆë©”ì´ì…˜
         Tween tween = playerClone.transform.DOMove(transform.position, 0.5f);
-
+        //cameraController.GetComponent<Camera>().DOOrthoSize(8f, 0.5f);
         tween.OnComplete(() =>
         {
             playerClone.SetActive(false);
