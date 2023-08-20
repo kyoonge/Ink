@@ -247,10 +247,11 @@ public class PlayerController : MonoBehaviour
         UIManager.instance._isGameEnd = true;
     }
 
-    public void Reflection()
+    public IEnumerator Reflection()
     {
         isReflection = true;
-        
+        cameraController.isReflection = true;
+
         //클론 생성
         playerClone.transform.position = this.transform.position + new Vector3(0,0.4f,0);
         playerClone.transform.localScale = Vector3.zero; 
@@ -258,38 +259,24 @@ public class PlayerController : MonoBehaviour
         //x,y 스케일 -1 곱하기
         Vector3 reflectScale = new Vector3(transform.localScale.x*1, transform.localScale.y * -1, transform.localScale.z);
         playerClone.transform.DOScale(reflectScale, 0.5f).SetEase(Ease.OutSine);
-        //playerClone.transform.DOMoveX(transform.position.x, 0.5f);
 
-        //playerClone.GetComponent<ClonePlayer>().playerXScale = transform.localScale.x;
-        cameraController.isReflection = true;
-        cameraController.transform.DOShakePosition(1f, 1f);
-        Vector2 offset = cameraController.offset;
-        cameraController.transform.DOMove((transform.position + playerClone.transform.position + (Vector3)offset) * 0.5f,1f);
+        yield return null;
     }
 
-    public void ReflectionOff()
+    public IEnumerator ReflectionOff()
     {
         // playerClone의 크기를 0으로 줄이는 트윈 애니메이션
-        Tween scaleTween = playerClone.transform.DOScale(Vector3.zero, 0.5f)
-            .SetEase(Ease.OutSine);
-
+        playerClone.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.OutSine);
         // playerClone의 위치를 원래 오브젝트의 위치로 이동하는 트윈 애니메이션
-        Tween moveTween = playerClone.transform.DOMove(transform.position, 0.5f);
+        Tween tween = playerClone.transform.DOMove(transform.position, 0.3f);
 
-        Vector2 offset = cameraController.offset;
-        cameraController.transform.DOMove(transform.position + (Vector3)offset, 0.5f);
-
-        // scaleTween이 완료되었을 때 실행되는 콜백 함수 설정
-        scaleTween.OnComplete(() =>
+        tween.OnComplete(() =>
         {
-            isReflection = false;
             playerClone.SetActive(false);
             cameraController.isReflection = false;
+            isReflection = false;
         });
 
-        // 두 개의 트윈 애니메이션 실행
-        cameraController.transform.DOShakePosition(1f, 1f);
-        moveTween.Play();
-        scaleTween.Play();      
+        yield return null;
     }
 }

@@ -242,25 +242,4 @@ public class ClonePlayer : MonoBehaviour
         UIManager.instance._isGameEnd = true;
     }
 
-    public void Reflection()
-    {
-        isReflection = false;
-
-        //클론 생성
-        playerClone.transform.position = this.transform.position + new Vector3(0, 0.4f, 0);
-        playerClone.transform.localScale = Vector3.zero;
-        playerClone.SetActive(true);
-        //x,y 스케일 -1 곱하기
-        Vector3 reflectScale = new Vector3(transform.localScale.x * 1, transform.localScale.y * -1, transform.localScale.z);
-        playerClone.transform.DOScale(reflectScale, 1f).SetEase(Ease.InQuad);
-        //playerClone.transform.DOMoveX(transform.position.x, 0.5f);
-
-
-        Debug.Log(playerClone.GetComponent<PlayerController>().groundCheckDirection);
-        //바닥스케일 up방향
-        playerClone.GetComponent<PlayerController>().groundCheckDirection = Vector2.up;
-        //변수 설정
-        playerClone.GetComponent<PlayerController>().isReflection = true;
-        Debug.Log(playerClone.GetComponent<PlayerController>().groundCheckDirection);
-    }
 }

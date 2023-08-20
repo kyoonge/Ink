@@ -39,12 +39,15 @@ public class CameraController : MonoBehaviour
             Vector3 _pos = _playerController.transform.position + (Vector3)offset;
             _pos.z = -10;
             transform.position = _pos;
+            //Debug.Log("1: "+offset);
         }
         else
         {
+            offset = transform.position - (_playerController.transform.position + _clonePlayer.transform.position) * 0.5f;
             Vector3 _pos = (_playerController.transform.position + _clonePlayer.transform.position + (Vector3)offset)*0.5f;
             _pos.z = -10;
             transform.position = _pos;
+            //Debug.Log("2: " + offset);
         }
 
     }
