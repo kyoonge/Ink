@@ -45,8 +45,7 @@ public class CameraController : MonoBehaviour
             transform.position = _pos;
         }
         else
-        {
-            
+        {           
             Vector3 _pos = 0.5f * (_playerController.transform.position + _clonePlayer.transform.position) + (Vector3)offset;
             _pos.z = -10;
             transform.position = _pos;

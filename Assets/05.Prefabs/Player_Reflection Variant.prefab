@@ -83,5 +83,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5931681585521309737, guid: 82935563a51abdc46aef975235674475, type: 3}
+    - {fileID: 5931681585521309732, guid: 82935563a51abdc46aef975235674475, type: 3}
+    - {fileID: 5931681585521309733, guid: 82935563a51abdc46aef975235674475, type: 3}
+    - {fileID: 5931681585521309734, guid: 82935563a51abdc46aef975235674475, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 82935563a51abdc46aef975235674475, type: 3}
+--- !u!1 &7964225812147000225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5931681585521309736, guid: 82935563a51abdc46aef975235674475, type: 3}
+  m_PrefabInstance: {fileID: 4383987981715630985}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6309448449171140439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7964225812147000225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08b3af2c9035bf4aad5a1b5cfb2c322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  groundChecker: {fileID: 0}
+  fdt: 0
+  isReflection: 0
+  groundCheckDirection: {x: 0, y: 0}
+  playerClone: {fileID: 0}
+  playerSpeed: 0
+  playerXScale: 0
+  isJump: 0
+  jumpHeight: 0
+  maxJump: 0
+  jumpCount: 0
