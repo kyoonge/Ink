@@ -9,6 +9,9 @@ public class JellyShooter : MonoBehaviour
     public JellyData data;
     public JellyBullet jellyBullet;
     public GameObject slimeHeadGraphic;
+    public GameObject slimeHeadGraphicClone;
+    public GameObject cloneJellyBullet;
+    public GameObject clonePlayer;
 
     public Coloring jellyColoring = Coloring.Red;
 
@@ -55,6 +58,15 @@ public class JellyShooter : MonoBehaviour
         jellyBullet.SetTarget(target, false);
         jellyBullet.GetComponent<SpriteRenderer>().color = ColorManager.instance.GetColorByColoring(jellyColoring);
         jellyBullet.gameObject.SetActive(true);
+
+        if (GetComponent<PlayerController>().isReflection)
+        {
+            slimeHeadGraphicClone.SetActive(false);
+            cloneJellyBullet.transform.position = slimeHeadGraphicClone.transform.position;
+            //cloneJellyBullet.SetTarget(target, false);
+            cloneJellyBullet.GetComponent<SpriteRenderer>().color = ColorManager.instance.GetColorByColoring(jellyColoring);
+            cloneJellyBullet.gameObject.SetActive(true);
+        }
     }
 
     private void RetriveJelly()
@@ -71,6 +83,15 @@ public class JellyShooter : MonoBehaviour
         jellyBullet.GetComponent<SpriteRenderer>().color = ColorManager.instance.GetColorByColoring(jellyColoring);
         jellyBullet.gameObject.SetActive(true);
 
+        if (GetComponent<PlayerController>().isReflection)
+        {
+            cloneJellyBullet.transform.position = jelliedObject.transform.position;
+            //cloneJellyBullet.SetTarget(slimeHeadGraphic.transform, true);
+            cloneJellyBullet.GetComponent<SpriteRenderer>().color = ColorManager.instance.GetColorByColoring(jellyColoring);
+            cloneJellyBullet.gameObject.SetActive(true);
+        }
+
+
         Collider2D _col = jelliedObject.GetComponent<Collider2D>();
         bool _tempActive = _col.enabled;
         bool _tempTrigger = _col.isTrigger;
@@ -84,9 +105,10 @@ public class JellyShooter : MonoBehaviour
 
     }
 
-    private void UpdateHeadColor()
+    public void UpdateHeadColor()
     {
         slimeHeadGraphic.GetComponent<SpriteRenderer>().color = ColorManager.instance.GetColorByColoring(jellyColoring);
+        slimeHeadGraphicClone.GetComponent<SpriteRenderer>().color = ColorManager.instance.GetColorByColoring(jellyColoring);
     }
 
     public void JellifyComplete(ColoredObject jelliedObject)

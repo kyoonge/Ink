@@ -212,6 +212,7 @@ public class PlayerController : MonoBehaviour
     {
         isDead = true;
         DeathEffect();
+        if (isReflection) playerClone.GetComponent<ClonePlayer>().StartCoroutine("DeathCoroutine");
         yield return new WaitForSeconds(1f);
         GameOver();
     }
@@ -252,6 +253,8 @@ public class PlayerController : MonoBehaviour
         isReflection = true;
         cameraController.isReflection = true;
 
+        GetComponent<JellyShooter>().UpdateHeadColor();
+
         //클론 생성
         playerClone.transform.position = this.transform.position + new Vector3(0,0.4f,0);
         playerClone.transform.localScale = Vector3.zero; 
@@ -268,7 +271,7 @@ public class PlayerController : MonoBehaviour
         // playerClone의 크기를 0으로 줄이는 트윈 애니메이션
         playerClone.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.OutSine);
         // playerClone의 위치를 원래 오브젝트의 위치로 이동하는 트윈 애니메이션
-        Tween tween = playerClone.transform.DOMove(transform.position, 0.3f);
+        Tween tween = playerClone.transform.DOMove(transform.position, 0.5f);
 
         tween.OnComplete(() =>
         {
