@@ -265,7 +265,7 @@ public class ClonePlayer : MonoBehaviour
         // 충돌한 오브젝트 처리
         foreach (Collider2D collider in hitColliders)
         {
-            if (!collider.isTrigger && collider.gameObject != this.gameObject)
+            if (!collider.isTrigger && collider.gameObject != this.gameObject && collider.gameObject.name != "Player" && collider.gameObject.name != "GroundCheck")
             {
                 Debug.Log("STOP: " + collider.gameObject.name);
                 isStuck = true;

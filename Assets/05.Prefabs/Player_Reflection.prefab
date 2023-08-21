@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3146323409801955733}
   - component: {fileID: 3146323409801955732}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: JellyEyeBlinkEffect_for_platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3146323410294198441}
   - component: {fileID: 3146323410294198440}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3146323410973673192}
   - component: {fileID: 3146323410973673195}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8992316664576916495}
   - component: {fileID: 1672484042639339667}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: JellyOutline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 89497647464636218}
   - component: {fileID: 6862289888900282923}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arm (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6242559256849728626}
   - component: {fileID: 8194415043519468364}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arm (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213184026621015}
   - component: {fileID: 7008213184026621014}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -569,7 +569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213184412479710}
   - component: {fileID: 7008213184412479681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -660,7 +660,7 @@ GameObject:
   - component: {fileID: 7008213184649872155}
   - component: {fileID: 3759956228150531815}
   - component: {fileID: 3680492282584854436}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player_Reflection
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -792,6 +792,11 @@ MonoBehaviour:
   jumpHeight: 2.8
   maxJump: 1
   jumpCount: 0
+  detectionBoxSize: {x: 1, y: 2}
+  detectionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  DetectDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &7008213184649872152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -868,6 +873,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundChecker: {fileID: 7008213185448105007}
+  detectionBoxSize: {x: 1, y: 2}
+  detectionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  DetectDirection: {x: 0.5, y: 1, z: 0}
+  isStuck: 0
   fdt: 0
   isReflection: 0
   groundCheckDirection: {x: 0, y: 0}
@@ -888,7 +899,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213184962967732}
   - component: {fileID: 7008213184962967735}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -972,7 +983,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213184973445705}
   - component: {fileID: 7008213184973445704}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1063,7 +1074,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213185081755506}
   - component: {fileID: 7008213185081755509}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Head (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1147,7 +1158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213185103495753}
   - component: {fileID: 7008213185103495752}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1231,7 +1242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213185335681823}
   - component: {fileID: 7008213185335681822}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1315,7 +1326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213185356484930}
   - component: {fileID: 7008213185356484933}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1399,7 +1410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213185373017278}
   - component: {fileID: 7008213185373017249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1492,7 +1503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213185448105004}
   - component: {fileID: 7008213185448105007}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1550,7 +1561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213185600716801}
   - component: {fileID: 7008213185600716800}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1634,7 +1645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213185606705745}
   - component: {fileID: 7008213185606705744}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1718,7 +1729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213185646360068}
   - component: {fileID: 7008213185646360071}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1802,7 +1813,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213185658427787}
   - component: {fileID: 7008213185658427786}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1893,7 +1904,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213185677592234}
   - component: {fileID: 7008213185677592237}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Jelly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1979,7 +1990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213185730618976}
   - component: {fileID: 7008213185730618979}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2063,7 +2074,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213185736868650}
   - component: {fileID: 7008213185736868653}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2147,7 +2158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213185738262661}
   - component: {fileID: 7008213185738262660}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2231,7 +2242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213185783799049}
   - component: {fileID: 7008213185783799048}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wheel (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2315,7 +2326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213186064769660}
   - component: {fileID: 7008213186064769663}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2399,7 +2410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213186090953405}
   - component: {fileID: 7008213186090953404}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2483,7 +2494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7008213186159943693}
   - component: {fileID: 7008213186159943692}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Circle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2567,7 +2578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4787128776065743204}
   - component: {fileID: 3614437671925589961}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2651,7 +2662,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1576022205290673353}
   - component: {fileID: 6330160395237777810}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arm (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2735,7 +2746,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8413635157325168851}
   - component: {fileID: 8413635157325168850}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: JellyEyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2790,7 +2801,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8413635157771409903}
   - component: {fileID: 8413635157771409902}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2874,7 +2885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8413635158434107310}
   - component: {fileID: 8413635158434107309}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2958,7 +2969,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1889758097913565717}
   - component: {fileID: 6889192055752694322}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arm (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3042,7 +3053,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2812435695555713404}
   - component: {fileID: 1795794157292255108}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arm (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

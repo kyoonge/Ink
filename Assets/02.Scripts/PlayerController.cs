@@ -316,7 +316,7 @@ public class PlayerController : MonoBehaviour
         // 충돌한 오브젝트 처리
         foreach (Collider2D collider in hitColliders)
         {
-            if (!collider.isTrigger && collider.gameObject != this.gameObject)
+            if (!collider.isTrigger && collider.gameObject != this.gameObject && collider.gameObject.name != "Player_Reflection" && collider.gameObject.name != "GroundCheck")
             {
                 Debug.Log("STOP: " + collider.gameObject.name);
                 return true;
