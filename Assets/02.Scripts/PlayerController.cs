@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
 
     void PlayerJump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJump)
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJump && fdt<=0.1f)
         {
             if (playerClone.activeSelf) playerClone.GetComponent<ClonePlayer>().PlayerJump(true);
             ColorManager.instance.AutoSwitchMainColoring();
@@ -205,13 +205,17 @@ public class PlayerController : MonoBehaviour
 //        RaycastHit2D rayCastHit = Physics2D.BoxCast(groundChecker.bounds.center, groundChecker.bounds.size, 0f, Vector2.down, extraHeightText, platformLayerMask);
         rayCastHit1 = Physics2D.BoxCast(groundChecker.bounds.center, groundChecker.bounds.size, 0f, groundCheckDirection, extraHeightText, platformLayerMask);
 
+        bool value;
+
         if (rayCastHit1.collider != null && !rayCastHit1.collider.isTrigger)
         {
+            value = true;
             fdt = 0f;
             jumpCount = 0;
         }
         else
         {
+            value = false;
             if (isJump)
             {
                 jumpCount++;
@@ -219,7 +223,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        return rayCastHit1.collider != null;
+        return value;
     }
 
     void CheckGameOver()
