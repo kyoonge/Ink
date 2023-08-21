@@ -15,7 +15,7 @@ public class JellyShooter : MonoBehaviour
 
     public Coloring jellyColoring = Coloring.Red;
 
-    [HideInInspector] public ColoredObject jelliedObject = null;
+    public ColoredObject jelliedObject = null;
     public bool canShoot = true;
     public bool canRetrieve = false;
 
@@ -39,12 +39,13 @@ public class JellyShooter : MonoBehaviour
                     if (_obj != null && _obj.isEyeball)
                     {
                         if (canShoot) ShootJelly(_obj.transform);
+                        Debug.Log("Mouse & Shoot");
                     }
                 }
             }
-
             else if(jelliedObject != null)
             {
+                Debug.Log("Mouse & Retrieve");
                 if (canRetrieve) RetriveJelly();
             }
         }
@@ -63,7 +64,6 @@ public class JellyShooter : MonoBehaviour
         {
             slimeHeadGraphicClone.SetActive(false);
             cloneJellyBullet.transform.position = slimeHeadGraphicClone.transform.position;
-            //cloneJellyBullet.SetTarget(target, false);
             cloneJellyBullet.GetComponent<SpriteRenderer>().color = ColorManager.instance.GetColorByColoring(jellyColoring);
             cloneJellyBullet.gameObject.SetActive(true);
         }
@@ -111,15 +111,19 @@ public class JellyShooter : MonoBehaviour
         slimeHeadGraphicClone.GetComponent<SpriteRenderer>().color = ColorManager.instance.GetColorByColoring(jellyColoring);
     }
 
-    public void JellifyComplete(ColoredObject jelliedObject)
+    public void JellifyComplete(ColoredObject _jelliedObject)
     {
-        jelliedObject.GetJellied(jellyColoring);
-        this.jelliedObject = jelliedObject;
+        Debug.Log("JellifyComplete");
+        _jelliedObject.GetJellied(jellyColoring);
+        jelliedObject = _jelliedObject;
+        Debug.Log("jelliedObject "+jelliedObject);
+        Debug.Log("_jelliedObject " + _jelliedObject);
         canRetrieve = true;
     }
 
     public void UnjellifyComplete()
     {
+        Debug.Log("unjellify");
         jelliedObject.GetUnjellied();
         jelliedObject = null;
     }

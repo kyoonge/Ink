@@ -15,6 +15,12 @@ public class ClonePlayer : MonoBehaviour
     private bool isDead;
     private bool isGameEnd;
 
+    [Header("FrontScan")]
+    public Vector2 detectionBoxSize = new Vector2(1f, 2f);
+    public LayerMask detectionLayer;
+    public Vector3 DetectDirection = new Vector3(0.5f,1f,0f);
+    public bool isStuck;
+
     [SerializeField] private float fdt;
     private float gameEndFdt = 2.5f;
 
@@ -67,6 +73,8 @@ public class ClonePlayer : MonoBehaviour
         CheckGameOver();
 
         if (!isDead) PlayerAct();
+
+        //isDetectObjectsAhead();
     }
 
     private void FixedUpdate()
@@ -107,16 +115,20 @@ public class ClonePlayer : MonoBehaviour
     {
         //horInput = Input.GetAxisRaw("Horizontal");
 
+
+        //좌우 구분
         playerScale = transform.localScale;
         if (horInput > 0)
         {
-            playerScale.x = playerXScale;
+            //DetectDirection = new Vector3(1, 0, 0);
+            //playerScale.x = playerXScale;
         }
         else if (horInput < 0)
         {
-            playerScale.x = -playerXScale;
+            //DetectDirection = new Vector3(-1, 0, 0);
+            //playerScale.x = -playerXScale;
         }
-        transform.localScale = playerScale;
+        //transform.localScale = playerScale;
         transform.Translate(Vector2.right * Time.deltaTime * playerSpeed * horInput);
 
         if (horInput == 0)
@@ -242,4 +254,33 @@ public class ClonePlayer : MonoBehaviour
         UIManager.instance._isGameEnd = true;
     }
 
+    public bool isDetectObjectsAhead(Vector3 detectDirection)
+    {
+        DetectDirection = detectDirection;
+        // 플레이어 바로 앞의 박스 캐스트 수행
+        Vector2 detectionOrigin = transform.position + detectDirection * detectionBoxSize.x * 0.5f; // 박스 캐스트 시작 위치 계산
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(detectionOrigin, detectionBoxSize, 0f);
+        //Debug.Log("DetectObject ");
+
+        // 충돌한 오브젝트 처리
+        foreach (Collider2D collider in hitColliders)
+        {
+            if (!collider.isTrigger && collider.gameObject != this.gameObject)
+            {
+                Debug.Log("STOP: " + collider.gameObject.name);
+                isStuck = true;
+                return isStuck;
+            }
+        }
+
+        return false;
+        
+    }
+
+    private void OnDrawGizmos()
+    {
+        // 디버그용으로 검출 박스를 그리는 코드 (Scene 뷰에서만 보임)
+        Vector3 detectionOrigin = transform.position + DetectDirection * detectionBoxSize.x * 0.5f;
+        Gizmos.DrawWireCube(detectionOrigin, detectionBoxSize);
+    }
 }

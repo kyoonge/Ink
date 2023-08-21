@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private LayerMask platformLayerMask;
     public RaycastHit2D rayCastHit1;
-
     public BoxCollider2D groundChecker;
 
     #region GameEndVariable
@@ -46,6 +45,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int jumpCount;
     #endregion
 
+    [Header("FrontScan")]
+    public Vector2 detectionBoxSize = new Vector2(1f, 2f);
+    public LayerMask detectionLayer;
+    public Vector3 DetectDirection;
+
     #region MonoBehaviour Method
 
     void Start()
@@ -68,6 +72,7 @@ public class PlayerController : MonoBehaviour
         CheckGameOver();
       
         if (!isDead) PlayerAct();
+
     }
 
     private void FixedUpdate()
@@ -110,20 +115,30 @@ public class PlayerController : MonoBehaviour
     void PlayerMove()
     {
         horInput = Input.GetAxisRaw("Horizontal");
-        if(playerClone.activeSelf) playerClone.GetComponent<ClonePlayer>().PlayerMove(horInput);
-
+        Vector3 playerCloneScale = playerClone.transform.localScale;
+        Vector3 detectDirection = new Vector3(0.5f, -1f,0f);
+        Vector3 detectDirectionClone = new Vector3(0.5f, 1f, 0f);
+        
+        //좌우 구분
         playerScale = transform.localScale;
         if (horInput > 0)
         {
             playerScale.x = playerXScale;
+            playerCloneScale.x = playerXScale;
         }
         else if(horInput < 0)
         {
+            detectDirection = new Vector3(-detectDirection.x, detectDirection.y, detectDirection.z);
+            detectDirectionClone = new Vector3(-detectDirectionClone.x, detectDirectionClone.y, detectDirectionClone.z);
             playerScale.x = -playerXScale;
+            playerCloneScale.x = -playerXScale;
         }
         transform.localScale = playerScale;
-        transform.Translate(Vector2.right * Time.deltaTime * playerSpeed * horInput);
+        playerClone.transform.localScale = playerCloneScale;
+        DetectDirection = detectDirection;
 
+
+        //애니메이션
         if(horInput == 0)
         {
             animator.Play("Idle");
@@ -131,6 +146,13 @@ public class PlayerController : MonoBehaviour
         else
         {
             animator.Play("Boing");
+        }
+
+        //이동
+        if (!playerClone.GetComponent<ClonePlayer>().isDetectObjectsAhead(detectDirectionClone) && !isDetectObjectsAhead())
+        {
+            transform.Translate(Vector2.right * Time.deltaTime * playerSpeed * horInput);
+            if (playerClone.activeSelf) playerClone.GetComponent<ClonePlayer>().PlayerMove(horInput);
         }
     }
 
@@ -282,5 +304,31 @@ public class PlayerController : MonoBehaviour
         });
 
         yield return null;
+    }
+
+    private bool isDetectObjectsAhead()
+    {
+        // 플레이어 바로 앞의 박스 캐스트 수행
+        Vector2 detectionOrigin = transform.position + DetectDirection * detectionBoxSize.x * 0.5f; // 박스 캐스트 시작 위치 계산
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(detectionOrigin, detectionBoxSize, 0f);
+        //Debug.Log("DetectObject ");
+
+        // 충돌한 오브젝트 처리
+        foreach (Collider2D collider in hitColliders)
+        {
+            if (!collider.isTrigger && collider.gameObject != this.gameObject)
+            {
+                Debug.Log("STOP: " + collider.gameObject.name);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        // 디버그용으로 검출 박스를 그리는 코드 (Scene 뷰에서만 보임)
+        Vector3 detectionOrigin = transform.position + DetectDirection * detectionBoxSize.x * 0.5f;
+        Gizmos.DrawWireCube(detectionOrigin, detectionBoxSize);
     }
 }
