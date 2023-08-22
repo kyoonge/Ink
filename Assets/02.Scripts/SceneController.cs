@@ -28,7 +28,7 @@ public class SceneController : MonoBehaviour
         {
             StartCoroutine(FindObjectOfType<PlayerController>().DeathCoroutine());
         }
-        else if (Input.GetKeyDown(KeyCode.F11)) 
+        else if (Input.GetKeyDown(KeyCode.F11))
         {
             ResetSavedata();
         }
@@ -49,6 +49,8 @@ public class SceneController : MonoBehaviour
     {
         if (SceneManager.sceneCountInBuildSettings - 1 > SceneManager.GetActiveScene().buildIndex)
         {
+            DataManager.instance.ResetJson();
+            DataManager.instance.gameData.sceneIndex = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }

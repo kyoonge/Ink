@@ -449,6 +449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartBtn Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3630362030754938266, guid: cf33fb245f84e0849a25b38cb94e939b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5022821964985721984, guid: cf33fb245f84e0849a25b38cb94e939b, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -655,7 +659,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 93.57405}
+  m_AnchoredPosition: {x: 0, y: -89.99107}
   m_SizeDelta: {x: 472.4846, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2016187027
@@ -705,7 +709,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 350.8
+  m_fontSize: 350.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -832,7 +836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2455194955049675685, guid: cf33fb245f84e0849a25b38cb94e939b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 295.84723
+      value: 149.22577
       objectReference: {fileID: 0}
     - target: {fileID: 2455194955049675685, guid: cf33fb245f84e0849a25b38cb94e939b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -871,8 +875,16 @@ PrefabInstance:
       value: StartBtn Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3874150050203169587, guid: cf33fb245f84e0849a25b38cb94e939b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874150050203169587, guid: cf33fb245f84e0849a25b38cb94e939b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: loadNewScene
+      value: loadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874150050203169587, guid: cf33fb245f84e0849a25b38cb94e939b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5022821964985721984, guid: cf33fb245f84e0849a25b38cb94e939b, type: 3}
       propertyPath: m_Color.b

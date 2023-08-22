@@ -69,7 +69,7 @@ public class JellyShooter : MonoBehaviour
         }
     }
 
-    private void RetriveJelly()
+    public void RetriveJelly()
     {
         if (jelliedObject.isEyeball)
         {

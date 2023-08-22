@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5753520493769803570}
   - component: {fileID: 2604883075070167982}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: JellyOutline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2966316076737276200}
   - component: {fileID: 7820764187909415183}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arm (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1446917058842387009}
   - component: {fileID: 3168367544232479929}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arm (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2795780869502046196}
   - component: {fileID: 7262761850672913071}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arm (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 5931681585521309733}
   - component: {fileID: 5931681585521309734}
   - component: {fileID: 521767193786248666}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -484,6 +484,11 @@ MonoBehaviour:
   jumpHeight: 2.8
   maxJump: 1
   jumpCount: 0
+  detectionBoxSize: {x: 1, y: 2}
+  detectionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  DetectDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &5931681585521309733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,6 +504,9 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 63a948901ffe04848a605d1e21df5abc, type: 2}
   jellyBullet: {fileID: 0}
   slimeHeadGraphic: {fileID: 5931681586675154326}
+  slimeHeadGraphicClone: {fileID: 0}
+  cloneJellyBullet: {fileID: 0}
+  clonePlayer: {fileID: 0}
   jellyColoring: 1
   jelliedObject: {fileID: 0}
   canShoot: 0
@@ -551,7 +559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681585812718473}
   - component: {fileID: 5931681585812718474}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,7 +643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681585961843791}
   - component: {fileID: 5931681585961843784}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,7 +727,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681585970012532}
   - component: {fileID: 5931681585970012533}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -810,7 +818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681586111532906}
   - component: {fileID: 5931681586111532907}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -894,7 +902,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681586363206627}
   - component: {fileID: 5931681586363206652}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -978,7 +986,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681586588441949}
   - component: {fileID: 5931681586588441950}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1062,7 +1070,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681586613957560}
   - component: {fileID: 5931681586613957561}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1146,7 +1154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681586615744535}
   - component: {fileID: 5931681586615744528}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1230,7 +1238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681586638622009}
   - component: {fileID: 5931681586638622010}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1314,7 +1322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681586660238006}
   - component: {fileID: 5931681586660238007}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1405,7 +1413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681586675154327}
   - component: {fileID: 5931681586675154320}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jelly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1491,7 +1499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681586769618484}
   - component: {fileID: 5931681586769618485}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wheel (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1575,7 +1583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681587031661360}
   - component: {fileID: 5931681587031661361}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1659,7 +1667,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681587059202369}
   - component: {fileID: 5931681587059202370}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1743,7 +1751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681587099996544}
   - component: {fileID: 5931681587099996545}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1827,7 +1835,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681587182139764}
   - component: {fileID: 5931681587182139765}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1911,7 +1919,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681587285366818}
   - component: {fileID: 5931681587285366819}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1995,7 +2003,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681587297725055}
   - component: {fileID: 5931681587297725048}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2079,7 +2087,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681587374403345}
   - component: {fileID: 5931681587374403346}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2137,7 +2145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681587449360259}
   - component: {fileID: 5931681587449360284}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2230,7 +2238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681587523124028}
   - component: {fileID: 5931681587523124029}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2314,7 +2322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5931681587550820716}
   - component: {fileID: 5931681587550820717}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2398,7 +2406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8177675426073150041}
   - component: {fileID: 88580860383649012}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2482,7 +2490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7327843312128245583}
   - component: {fileID: 4804167811803031665}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arm (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2566,7 +2574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3615908476492325895}
   - component: {fileID: 7793615979423793430}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arm (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2704,8 +2712,20 @@ PrefabInstance:
       value: JellyEyeBlinkEffect_for_platforms
       objectReference: {fileID: 0}
     - target: {fileID: 1549537732405067133, guid: 09e3674771aa3bd48b13ab9cc3bba272, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549537732405067133, guid: 09e3674771aa3bd48b13ab9cc3bba272, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549537733380697598, guid: 09e3674771aa3bd48b13ab9cc3bba272, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549537734060178361, guid: 09e3674771aa3bd48b13ab9cc3bba272, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09e3674771aa3bd48b13ab9cc3bba272, type: 3}
@@ -2781,6 +2801,18 @@ PrefabInstance:
     - target: {fileID: 1549537732405067133, guid: 09e3674771aa3bd48b13ab9cc3bba272, type: 3}
       propertyPath: m_Name
       value: JellyEyes
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549537732405067133, guid: 09e3674771aa3bd48b13ab9cc3bba272, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549537733380697598, guid: 09e3674771aa3bd48b13ab9cc3bba272, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549537734060178361, guid: 09e3674771aa3bd48b13ab9cc3bba272, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09e3674771aa3bd48b13ab9cc3bba272, type: 3}

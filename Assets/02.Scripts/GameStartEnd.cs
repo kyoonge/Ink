@@ -28,6 +28,25 @@ public class GameStartEnd : MonoBehaviour
         SceneManager.LoadScene("Stage" + DataManager.instance.gameData.sceneIndex);
     }
 
+    public void loadScene(int index)
+    {
+        if (index==0) 
+        {
+            SceneManager.LoadScene("Menu");
+        }
+        else if(index == -1)
+        {
+            SceneManager.LoadScene("Title");
+        }
+        else
+        {
+            DataManager.instance.ResetJson();
+            DataManager.instance.gameData.sceneIndex = index;
+            SceneManager.LoadScene("Stage" + index);
+        }
+
+    }
+
     // Update is called once per frame
     public void gameQuit()
     {

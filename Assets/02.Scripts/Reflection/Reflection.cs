@@ -17,7 +17,6 @@ public class Reflection : MonoBehaviour
         {
             if (collision.GetComponent<ClonePlayer>()!=null)
             {
-                Debug.Log("is Clone");
                 player.GetComponent<PlayerController>().StartCoroutine("ReflectionOff");
             }
             else if (!collision.gameObject.GetComponent<PlayerController>().isReflection)

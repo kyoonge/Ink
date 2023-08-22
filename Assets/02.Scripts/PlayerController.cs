@@ -295,6 +295,9 @@ public class PlayerController : MonoBehaviour
 
     public IEnumerator ReflectionOff()
     {
+        // 머리 반납
+        if (GetComponent<JellyShooter>().canRetrieve) GetComponent<JellyShooter>().RetriveJelly();
+
         // playerClone의 크기를 0으로 줄이는 트윈 애니메이션
         playerClone.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.OutSine);
         // playerClone의 위치를 원래 오브젝트의 위치로 이동하는 트윈 애니메이션
