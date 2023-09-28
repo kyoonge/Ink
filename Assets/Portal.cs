@@ -9,7 +9,6 @@ public class Portal : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             print("Touched");
-            Debug.Log(SceneController.instance.)
             SceneController.instance.NextLevel();
         }
     }
